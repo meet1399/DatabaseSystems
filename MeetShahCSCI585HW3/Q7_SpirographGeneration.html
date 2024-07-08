@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ </head>
+ <body>
+    <pre id="latlong"></pre>
+ </body> 
+    <script>
+        var R=36, r=9, a=30; 
+        var cos=Math.cos, sin=Math.sin, pi=Math.PI, nRev=16;
+        for(var t=0.0; t<(pi*nRev); t+=0.1){
+          var x = (R+r)*cos((r/R)*t) - a*cos((1+r/R)*t);
+          var y = (R+r)*sin((r/R)*t) - a*sin((1+r/R)*t);
+          var x2 = -118.285446+0.00003*x, y2 = 34.020561+0.00003*y;
+          document.getElementById('latlong').innerHTML += ("{\"loc\": ["+ x2 + "," + y2 + "]},\n");
+        }
+    </script>
+</html>
